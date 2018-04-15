@@ -1,0 +1,17 @@
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    RewriteCond $1 !^(index\.php|resources|robots\.txt)
+
+    RewriteCond %{REQUEST_URI} ^system.*
+    RewriteRule ^(.*)$ /aci-harviacode/index.php?/$1 [L]
+
+    RewriteCond %{REQUEST_URI} ^application.*
+    RewriteRule ^(.*)$ /aci-harviacode/index.php?/$1 [L]
+
+    RewriteCond %{REQUEST_URI} ^asset.*
+    RewriteRule ^(.*)$ /aci-harviacode/index.php?/$1 [L]
+
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteRule ^(.*)$ /aci-harviacode/index.php/$1 [L]
+</IfModule>
